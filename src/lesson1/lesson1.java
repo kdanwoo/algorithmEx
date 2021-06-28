@@ -13,6 +13,7 @@ class Solution {
            if(arr[i].equals("0")){
                 corrent++;
             }else{
+
                 max = (max>corrent) ? max : corrent;
                 corrent = 0;
             }
