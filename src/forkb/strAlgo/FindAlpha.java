@@ -1,6 +1,6 @@
 package forkb.strAlgo;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 알파벳 소문자로만 이루어진 단어 S가 주어진다.
@@ -9,7 +9,33 @@ import java.util.Scanner;
 public class FindAlpha {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int[] alphaIndex = new int[26];
+        String val = sc.nextLine();
+        Map<Character, Integer> map = new TreeMap<>();
 
+        for(int i =0 ; i<val.length() ; i++){
+            if(!map.containsKey(val.charAt(i))){
+                map.put(val.charAt(i),i);
+            }
+        }
+
+        Arrays.fill(alphaIndex, -1); // 배열 채우는중!
+
+
+        /**
+         * 대문자 65 ~ 90
+         * 소문자 97 ~ 122
+         * */
+        for(int i=0; i<alphaIndex.length;i++){
+            char a = (char) (97 + i);
+            if(map.containsKey(a)){
+                alphaIndex[i] = map.get(a);
+            }
+        }
+
+        for(int i=0; i< alphaIndex.length;i++){
+            System.out.print(alphaIndex[i]+ " ");
+        }
 
     }
 }
