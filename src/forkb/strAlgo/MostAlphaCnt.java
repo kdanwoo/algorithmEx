@@ -10,7 +10,6 @@ import java.util.*;
 public class MostAlphaCnt {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        MostAlphaCnt mostAlphaCnt = new MostAlphaCnt();
 
         String str = sc.nextLine();
         str = str.toLowerCase(Locale.ROOT);
