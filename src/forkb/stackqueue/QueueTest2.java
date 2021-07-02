@@ -43,10 +43,10 @@ public class QueueTest2 {
     }
 
     class Printer {
-            int location;
-            int prior;
+            int location; //index
+            int prior; //우선순위
 
-            Printer(int location, int prior) {
+            Printer(int location, int prior) { //생성자
                 this.location = location;
                 this.prior = prior;
             }
@@ -54,8 +54,8 @@ public class QueueTest2 {
     }
 
     public static void main(String[] args) {
-        int[] priorities = {2,1,3,2};
-        int location = 2;
+        int[] priorities = {1,3,2,5,4};
+        int location = 3;
 
         Solution sol = new Solution();
         System.out.println(sol.solution(priorities, location));
