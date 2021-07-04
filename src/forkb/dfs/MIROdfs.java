@@ -41,8 +41,8 @@ public class MIROdfs {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         SIZE = sc.nextInt(); //정사각형일 경우
-        x = sc.nextInt(); //시작할 좌표 입력 1,1 부터 시작하면됌
-        y = sc.nextInt(); //시작할 좌표 입력 1,1 부터 시작하면됌
+        x = sc.nextInt(); //시작할 좌표 입력 0 부터 시작하면됌
+        y = sc.nextInt(); //시작할 좌표 입력 0 부터 시작하면됌
         map = new int[SIZE][SIZE];
         maxMin = SIZE * SIZE;
 
