@@ -1,20 +1,20 @@
-package forkb.dfs;
+package forbs.real;
 
 import java.util.*;
 
-//너비우선 탐색 알고리즘 실습
-public class BFSTest {
+public class            BFSex {
 
     static int vertexCnt;
     static int edgeCnt;
     static int startVertex;
+    static ArrayList<LinkedList<Integer>> adjListArr;
     static boolean[] visited;
 
-    private static void bfs_list(int startVertex, LinkedList<Integer>[] adjList, boolean[] visited) {
-        Queue<Integer> queue = new LinkedList<Integer>();
-        visited[startVertex] = true; //방문한 노드를 무조건 체크해주기 위함 !
+    private static void BFSstart(LinkedList<Integer>[] adjList, int startVertex) {
+        Queue<Integer> queue = new LinkedList<>();
+        visited[startVertex] = true; //방문체크
 
-       queue.add(startVertex); //큐에 삽입
+        queue.add(startVertex); //큐에 삽입
 
         while(queue.size() != 0) {
             startVertex = queue.poll();
@@ -30,16 +30,16 @@ public class BFSTest {
             }
         }
 
-
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        vertexCnt = sc.nextInt(); // 정점의 개수
-        edgeCnt = sc.nextInt(); // 간선의 개수
+        vertexCnt = sc.nextInt(); // 정점의 총 개수
+        edgeCnt = sc.nextInt(); // 간선의 총 개수
         startVertex = sc.nextInt(); // 탐색을 시작할 정점의 번호
         visited=  new boolean[vertexCnt+ 1]; // 방문 여부를 검사할 배열, 정점이 1부터 시작하니까
+        int x, y;
 
         // 1~N까지 각각의 인접(연결 정보)를 가진 리스트들을 만들어 연결리스트의 배열로서 관리
         LinkedList<Integer>[] adjList = new LinkedList[vertexCnt + 1]; //정점이 1부터 시작해서
@@ -60,17 +60,18 @@ public class BFSTest {
              * */
             adjList[v1].add(v2);
             adjList[v2].add(v1);
-
         }
 
+        //중요해 ~ 정렬해줘야해
         for (int i = 1; i <= vertexCnt; i++) { //각각 정점이 갖고있는 연결리스트들을 순회
             Collections.sort(adjList[i]); // 방문 순서를 위해 오름차순 정렬
         }
 
+        System.out.println("BFS START");
+        BFSstart(adjList,startVertex);
 
-        System.out.println("BFS - 인접리스트");
-        bfs_list(startVertex, adjList, visited);
 
     }
+
 
 }
